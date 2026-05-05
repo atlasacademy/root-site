@@ -1,0 +1,10 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ with .Description }}<p>{{ . }}</p>{{ end }}
+<ul class="post-list">
+  {{ $tag := .Params.slug }}
+  {{ range where (where .Site.RegularPages "Type" "posts") "Params.tags" "intersect" (slice $tag) }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a><br><span>{{ .Date.Format "2006-01-02" }}</span></li>
+  {{ end }}
+</ul>
+{{ end }}

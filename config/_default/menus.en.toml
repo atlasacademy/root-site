@@ -1,0 +1,39 @@
+[[main]]
+name = "Home"
+url = "/"
+weight = 10
+
+[[main]]
+name = "Apps"
+url = "/apps/"
+weight = 20
+
+[[main]]
+name = "Data"
+url = "/data/"
+weight = 30
+
+[[main]]
+name = "Resources"
+url = "/resources/"
+weight = 40
+
+[[main]]
+name = "About Us"
+url = "/about-us/"
+weight = 50
+
+[[main]]
+name = "Donate"
+url = "/donate/"
+weight = 60
+
+[[main]]
+name = "Discord"
+url = "https://discord.gg/7jBA5FZdEF"
+weight = 70
+
+[[main]]
+name = "Twitter"
+url = "https://twitter.com/AAcademy_fgo"
+weight = 80

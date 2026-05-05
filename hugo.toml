@@ -1,0 +1,28 @@
+baseURL = "https://atlasacademy.io/"
+title = "Atlas Academy"
+theme = "blowfish"
+defaultContentLanguage = "en"
+disableKinds = ["RSS"]
+enableRobotsTXT = true
+
+[taxonomies]
+tag = "tags"
+author = "authors"
+
+[permalinks.page]
+posts = "/:slug/"
+pages = "/:slug/"
+
+[permalinks.term]
+tags = "/tag/:slug/"
+authors = "/author/:slug/"
+
+[permalinks.taxonomy]
+tags = "/tag/"
+authors = "/author/"
+
+[params]
+description = "FGO Data Collection and Analysis"
+
+[markup.goldmark.renderer]
+unsafe = true

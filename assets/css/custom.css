@@ -1,0 +1,109 @@
+.article-content table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin: 1.75rem auto;
+  overflow-x: auto;
+  border-collapse: collapse;
+  border: 1px solid rgb(215 224 231);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+.article-content table tbody {
+  display: table;
+  width: 100%;
+  min-width: 26rem;
+}
+
+.article-content table tr {
+  border-bottom: 1px solid rgb(226 232 238);
+}
+
+.article-content table tr:last-child {
+  border-bottom: 0;
+}
+
+.article-content table tr:first-child {
+  background: rgb(245 248 250);
+}
+
+.article-content table th,
+.article-content table td {
+  padding: 0.65rem 0.85rem;
+  border-right: 1px solid rgb(226 232 238);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-content table th:last-child,
+.article-content table td:last-child {
+  border-right: 0;
+}
+
+.article-content table tr:first-child th,
+.article-content table tr:first-child td {
+  color: rgb(31 41 55);
+  font-weight: 700;
+}
+
+.article-content table tr:not(:first-child) th {
+  font-weight: 500;
+}
+
+.article-content table tr:nth-child(even):not(:first-child) {
+  background: rgb(250 252 253);
+}
+
+.dark .article-content table {
+  border-color: rgb(63 74 86);
+}
+
+.dark .article-content table tr {
+  border-bottom-color: rgb(63 74 86);
+}
+
+.dark .article-content table tr:first-child {
+  background: rgb(38 48 61);
+}
+
+.dark .article-content table tr:first-child th,
+.dark .article-content table tr:first-child td {
+  color: rgb(245 247 250);
+}
+
+.dark .article-content table th,
+.dark .article-content table td {
+  border-right-color: rgb(63 74 86);
+}
+
+.dark .article-content table tr:nth-child(even):not(:first-child) {
+  background: rgb(28 36 47);
+}
+
+.article-content .aa-video-embed {
+  margin: 1.75rem 0;
+}
+
+.article-content .aa-video-embed iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 6px;
+  background: rgb(12 20 31);
+}
+
+.article-content .aa-video-embed figcaption {
+  margin-top: 0.5rem;
+  color: rgb(100 116 139);
+  font-size: 0.9rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.dark .article-content .aa-video-embed figcaption {
+  color: rgb(156 163 175);
+}

@@ -1,0 +1,16 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 1
+title = "Atlas Academy"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "January 2, 2006"
+description = "FGO Data Collection and Analysis"
+
+[params.author]
+name = "Atlas Academy"
+headline = "FGO Data Collection and Analysis"

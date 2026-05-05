@@ -1,0 +1,54 @@
+theme = "blowfish"
+baseURL = "https://atlasacademy.io/"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+summaryLength = 0
+buildDrafts = false
+buildFuture = false
+enableEmoji = true
+
+[pagination]
+pagerSize = 100
+
+[imaging]
+anchor = "Center"
+
+[taxonomies]
+tag = "tags"
+author = "authors"
+
+[permalinks.page]
+posts = "/:slug/"
+pages = "/:slug/"
+
+[permalinks.term]
+tags = "/tag/:slug/"
+authors = "/author/:slug/"
+
+[permalinks.taxonomy]
+tags = "/tag/"
+authors = "/author/"
+
+[sitemap]
+changefreq = "daily"
+filename = "sitemap.xml"
+priority = 0.5
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[related]
+threshold = 0
+toLower = false
+
+[[related.indices]]
+name = "tags"
+weight = 100
+
+[[related.indices]]
+name = "authors"
+weight = 20
+
+[[related.indices]]
+name = "date"
+weight = 10

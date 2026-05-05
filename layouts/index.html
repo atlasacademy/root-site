@@ -1,0 +1,404 @@
+{{ define "main" }}
+<style>
+  body:has(.aa-old-home) {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  body:has(.aa-old-home) > .main-menu {
+    position: absolute;
+    top: 1.35rem;
+    left: 50%;
+    z-index: 20;
+    width: min(72rem, calc(100vw - 2rem));
+    transform: translateX(-50%);
+    color: #fff;
+  }
+
+  body:has(.aa-old-home) > .main-menu a,
+  body:has(.aa-old-home) > .main-menu span,
+  body:has(.aa-old-home) > .main-menu button {
+    color: #fff !important;
+  }
+
+  .aa-old-home {
+    width: 100%;
+    color: #101318;
+    background: #fff;
+  }
+
+  .aa-home-hero {
+    position: relative;
+    display: grid;
+    min-height: 425px;
+    place-items: center;
+    overflow: hidden;
+    background: #081527 url("/content/images/2020/08/back29500.png") center 42% / cover no-repeat;
+  }
+
+  .aa-home-hero::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: rgba(3, 9, 18, 0.34);
+  }
+
+  .aa-home-title {
+    position: relative;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(3rem, 5vw, 3.85rem);
+    font-weight: 700;
+    line-height: 1.05;
+    text-align: center;
+  }
+
+  .aa-home-subtitle {
+    position: relative;
+    margin-top: 0.35rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1.45rem;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .aa-home-posts {
+    width: min(73rem, calc(100vw - 2rem));
+    margin: 0 auto;
+    padding: 3rem 0 2.5rem;
+    border-bottom: 1px solid #e8edf1;
+  }
+
+  .aa-home-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.75rem;
+    align-items: start;
+  }
+
+  .aa-home-card {
+    flex: 0 1 calc((100% - 5.5rem) / 3);
+    min-width: 0;
+  }
+
+  .aa-home-card img,
+  .aa-home-card .aa-home-banner-placeholder {
+    width: 100%;
+    aspect-ratio: 2.48 / 1;
+    margin-bottom: 1.55rem;
+    object-fit: cover;
+  }
+
+  .aa-home-banner-placeholder {
+    display: grid;
+    place-items: center;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, hsl(var(--aa-banner-hue, 210), 55%, 38%), hsl(calc(var(--aa-banner-hue, 210) + 30), 60%, 22%));
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  .aa-home-card h2 {
+    margin: 0 0 0.6rem;
+    color: #080b10;
+    font-size: 1.42rem;
+    font-weight: 700;
+    line-height: 1.18;
+  }
+
+  .aa-home-card h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .aa-home-card p {
+    margin: 0;
+    color: #687f8d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    line-height: 1.48;
+  }
+
+  .aa-home-meta {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+    margin-top: 1.45rem;
+    color: #8ca0aa;
+    font-size: 0.78rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .aa-home-avatar {
+    display: inline-grid;
+    width: 2.05rem;
+    height: 2.05rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: 999px;
+    background: #e9eef2;
+    color: #8ca0aa;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .aa-home-author {
+    display: block;
+    color: #4b5a63;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .aa-home-details {
+    display: block;
+    margin-top: 0.18rem;
+    letter-spacing: 0;
+  }
+
+  body:has(.aa-old-home) #site-footer {
+    width: min(73rem, calc(100vw - 2rem));
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  body:has(.aa-old-home) #site-footer nav {
+    justify-content: center;
+  }
+
+  body:has(.aa-old-home) #site-footer ul {
+    justify-content: center;
+  }
+
+  body:has(.aa-old-home) #site-footer > div {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    body:has(.aa-old-home) > .main-menu {
+      position: relative;
+      top: auto;
+      left: auto;
+      width: auto;
+      transform: none;
+      color: inherit;
+    }
+
+    body:has(.aa-old-home) > .main-menu a,
+    body:has(.aa-old-home) > .main-menu span,
+    body:has(.aa-old-home) > .main-menu button {
+      color: inherit !important;
+    }
+
+    .aa-home-hero {
+      min-height: 340px;
+    }
+
+    .aa-home-grid {
+      gap: 2rem;
+    }
+
+    .aa-home-card {
+      flex-basis: 100%;
+    }
+  }
+
+  .aa-home-apps {
+    width: min(73rem, calc(100vw - 2rem));
+    margin: 0 auto;
+    padding: 2.75rem 0 1.75rem;
+    border-bottom: 1px solid #e8edf1;
+  }
+
+  .aa-home-apps-title {
+    margin: 0 0 1.4rem;
+    color: #6b7d88;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .aa-home-apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+  }
+
+  .aa-home-app-card {
+    display: block;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid #e6ebef;
+    border-radius: 10px;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .aa-home-app-card:hover {
+    border-color: #c8d3da;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(15, 30, 45, 0.06);
+  }
+
+  .aa-home-app-card h3 {
+    margin: 0 0 0.3rem;
+    color: #0a1320;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .aa-home-app-card p {
+    margin: 0;
+    color: #687f8d;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .dark .aa-old-home {
+    color: rgb(226 232 240);
+    background: rgb(15 23 42);
+  }
+
+  .dark .aa-home-posts {
+    border-bottom-color: rgb(51 65 85);
+  }
+
+  .dark .aa-home-card h2 {
+    color: rgb(241 245 249);
+  }
+
+  .dark .aa-home-card p {
+    color: rgb(148 163 184);
+  }
+
+  .dark .aa-home-meta {
+    color: rgb(100 116 139);
+  }
+
+  .dark .aa-home-avatar {
+    background: rgb(51 65 85);
+    color: rgb(148 163 184);
+  }
+
+  .dark .aa-home-author {
+    color: rgb(203 213 225);
+  }
+
+  .dark .aa-home-apps {
+    border-bottom-color: rgb(51 65 85);
+  }
+
+  .dark .aa-home-apps-title {
+    color: rgb(148 163 184);
+  }
+
+  .dark .aa-home-app-card {
+    background: rgb(30 41 59);
+    border-color: rgb(51 65 85);
+  }
+
+  .dark .aa-home-app-card:hover {
+    border-color: rgb(71 85 105);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  }
+
+  .dark .aa-home-app-card h3 {
+    color: rgb(241 245 249);
+  }
+
+  .dark .aa-home-app-card p {
+    color: rgb(148 163 184);
+  }
+
+  .dark body:has(.aa-old-home) > .main-menu a,
+  .dark body:has(.aa-old-home) > .main-menu span,
+  .dark body:has(.aa-old-home) > .main-menu button {
+    color: #fff !important;
+  }
+
+  @media (max-width: 900px) {
+    .dark body:has(.aa-old-home) > .main-menu a,
+    .dark body:has(.aa-old-home) > .main-menu span,
+    .dark body:has(.aa-old-home) > .main-menu button {
+      color: inherit !important;
+    }
+  }
+</style>
+
+<section class="aa-old-home">
+  <header class="aa-home-hero">
+    <div>
+      <h1 class="aa-home-title">Atlas Academy</h1>
+      <div class="aa-home-subtitle">FGO Data Collection and Analysis</div>
+    </div>
+  </header>
+
+  <div class="aa-home-apps">
+    <h2 class="aa-home-apps-title">Apps</h2>
+    <div class="aa-home-apps-grid">
+      <a class="aa-home-app-card" href="https://api.atlasacademy.io">
+        <h3>Atlas Academy API</h3>
+        <p>API endpoints for FGO data, updated within an hour of new game versions.</p>
+      </a>
+      <a class="aa-home-app-card" href="https://apps.atlasacademy.io/db/">
+        <h3>Atlas Academy DB</h3>
+        <p>Navigate current game data for JP and NA FGO.</p>
+      </a>
+      <a class="aa-home-app-card" href="https://apps.atlasacademy.io/drop-lookup/#/">
+        <h3>Drop Lookup</h3>
+        <p>Index of drop locations and rates.</p>
+      </a>
+      <a class="aa-home-app-card" href="https://apps.atlasacademy.io/chargers">
+        <h3>NP Chargers</h3>
+        <p>Tables listing servants with NP charge.</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="aa-home-posts">
+    <div class="aa-home-grid">
+      {{ $posts := where (where .Site.RegularPages "Section" "posts") "Draft" false }}
+      {{ range sort $posts "Date" "desc" }}
+        {{ $article := . }}
+        <article class="aa-home-card">
+          {{ with .Params.feature_image }}
+            <a href="{{ $article.RelPermalink }}" aria-label="{{ $article.Title }}">
+              <img class="nozoom" src="{{ . }}" alt="">
+            </a>
+          {{ else }}
+            {{ $hue := mod (hash.FNV32a $article.File.UniqueID) 360 }}
+            <a href="{{ $article.RelPermalink }}" aria-label="{{ $article.Title }}" class="aa-home-banner-placeholder" style="--aa-banner-hue: {{ $hue }};" aria-hidden="false">{{ substr $article.Title 0 1 | upper }}</a>
+          {{ end }}
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ $summary := or .Params.description (.Summary | plainify) }}
+          {{ with $summary }}
+            <p>{{ . | plainify | truncate 205 }}</p>
+          {{ end }}
+          <div class="aa-home-meta">
+            <span class="aa-home-avatar" aria-hidden="true">{{ substr .Title 0 1 }}</span>
+            <span>
+              {{ with .GetTerms "authors" }}
+                {{ range first 1 . }}
+                  <a class="aa-home-author" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                {{ end }}
+              {{ else }}
+                <span class="aa-home-author">Atlas Academy</span>
+              {{ end }}
+              <span class="aa-home-details">{{ .Date.Format "2 Jan 2006" }} &nbsp;&bull;&nbsp; {{ .ReadingTime }} min read</span>
+            </span>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

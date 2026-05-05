@@ -1,0 +1,13 @@
+<div class="aa-post-meta">
+  <span class="aa-post-avatar" aria-hidden="true">{{ substr .Title 0 1 }}</span>
+  <span>
+    {{ with .GetTerms "authors" }}
+      {{ range first 1 . }}
+        <a class="aa-post-author" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      {{ end }}
+    {{ else }}
+      <span class="aa-post-author">Atlas Academy</span>
+    {{ end }}
+    <span class="aa-post-details">{{ .Date.Format "2 Jan 2006" }} &nbsp;&bull;&nbsp; {{ .ReadingTime }} min read</span>
+  </span>
+</div>

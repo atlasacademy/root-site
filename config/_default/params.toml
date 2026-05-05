@@ -1,0 +1,25 @@
+colorScheme = "blowfish"
+defaultAppearance = "light"
+autoSwitchAppearance = true
+enableSearch = false
+enableCodeCopy = true
+
+[homepage]
+layout = "profile"
+showRecent = true
+recentLimit = 12
+
+[article]
+showDate = true
+showAuthor = true
+showHero = true
+showBreadcrumbs = true
+showTaxonomies = true
+showTableOfContents = true
+
+[list]
+showSummary = true
+showCards = false
+
+[footer]
+showThemeAttribution = true
